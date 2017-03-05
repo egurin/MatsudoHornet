@@ -125,8 +125,8 @@ var map = L.map('map', {
     timeDimensionOptions: {
         //timeInterval: "2016-04-01/" + currentTime.toISOString(), 
         timeInterval: "2016-04-01/2016-12-31", 
-        period: "P1M",
-        currentTime: currentTime
+        period: "P1M"
+        //currentTime: currentTime
     },
     center: [35.804602, 139.929651], // 松戸中心座標
 });
