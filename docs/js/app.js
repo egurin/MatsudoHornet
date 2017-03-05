@@ -70,10 +70,8 @@ L.TimeDimension.Layer.SODAHeatMap = L.TimeDimension.Layer.extend({
                         lng: marker.location.longitude,
                         count: 1
                     });
-                    //console.log(marker);
                 }
             }
-            //console.log(this._currentTimeData.data);
             this._currentLoadedTime = time;
             if (this._timeDimension && time == this._timeDimension.getCurrentTime() && !this._timeDimension.isLoading()) {
                 this._update();

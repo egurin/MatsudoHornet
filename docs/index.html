@@ -44,11 +44,11 @@
         <script type="text/javascript" src="src/leaflet.timedimension.player.js"></script>
         <script type="text/javascript" src="src/leaflet.timedimension.control.js"></script>        
         <script type="text/javascript" src="js/baselayers.js"></script>
-        <script type="text/javascript" src="js/App.js"></script>
+        <script type="text/javascript" src="js/app.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
         <script type="text/javascript">
             $(document).ready(function() {
-                $.ajax('js/App.js', {dataType: 'script'})
+                $.ajax('js/app.js', {dataType: 'script'})
                     .always(function(response) {                        
                         $("#code").text(response.responseText);
                         $('pre code').each(function(i, block) {
