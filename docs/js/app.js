@@ -56,13 +56,12 @@ L.TimeDimension.Layer.SODAHeatMap = L.TimeDimension.Layer.extend({
         }
         var url = this._constructQuery(time);
         var fileName = this._getFileName(time);
+        //console.log(fileName);
         
-        console.log("fileName:" + fileName);
-
         $.getJSON(fileName, (function(data) {
+            //console.log(data);
             delete this._currentTimeData.data;
             this._currentTimeData.data = [];
-            console.log("data:"+data);
             for (var i = 0; i < data.length; i++) {
                 var marker = data[i];
                 if (marker.location) {
@@ -71,8 +70,10 @@ L.TimeDimension.Layer.SODAHeatMap = L.TimeDimension.Layer.extend({
                         lng: marker.location.longitude,
                         count: 1
                     });
+                    //console.log(marker);
                 }
             }
+            //console.log(this._currentTimeData.data);
             this._currentLoadedTime = time;
             if (this._timeDimension && time == this._timeDimension.getCurrentTime() && !this._timeDimension.isLoading()) {
                 this._update();
@@ -129,7 +130,6 @@ var map = L.map('map', {
         period: "P1M",
         currentTime: currentTime
     },
-
     center: [35.804602, 139.929651], // 松戸中心座標
 });
 
@@ -142,6 +142,12 @@ var layer = new L.tileLayer(
 );
 map.addLayer(layer);
 
+var testSODALayer = L.timeDimension.layer.sodaHeatMap({
+    baseURL: 'https://data.cityofnewyork.us/resource/erm2-nwe9.json?$select=location,closed_date,complaint_type,street_name,created_date,status,unique_key,agency_name,due_date,descriptor,location_type,agency,incident_address&complaint_type=Noise - Commercial',
+});
+testSODALayer.addTo(map);
+//map.attributionControl.addAttribution('<a href="https://nycopendata.socrata.com/Social-Services/311-Service-Requests-from-2010-to-Present/erm2-nwe9">NYC OpenData</a>');
+
 L.Control.TimeDimensionCustom = L.Control.TimeDimension.extend({
     _getDisplayDateFormat: function(date){
         return date.format("mmmm yyyy");
@@ -151,7 +157,7 @@ var timeDimensionControl = new L.Control.TimeDimensionCustom({
     playerOptions: {
         buffer: 1,
         minBufferReady: -1,
-        startOver: true
+	startOver: true
     }
 });
 map.addControl(this.timeDimensionControl);
