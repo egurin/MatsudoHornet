@@ -121,6 +121,7 @@ currentTime.setUTCDate(1, 0, 0, 0, 0);
 var map = L.map('map', {
     zoom: 12,
     fullscreenControl: true,
+    zoomControl: false,
     timeDimension: true,    
     timeDimensionOptions: {
         //timeInterval: "2016-04-01/" + currentTime.toISOString(), 
