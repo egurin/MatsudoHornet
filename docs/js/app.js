@@ -8,7 +8,7 @@ L.TimeDimension.Layer.SODAHeatMap = L.TimeDimension.Layer.extend({
 
     initialize: function(options) {
         var heatmapCfg = {
-            radius: 15,
+            radius: 25,
             maxOpacity: .8,
             scaleRadius: false,
             useLocalExtrema: false,
