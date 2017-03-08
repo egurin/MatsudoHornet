@@ -121,7 +121,14 @@ currentTime.setUTCDate(1, 0, 0, 0, 0);
 var map = L.map('map', {
     zoom: 12,
     fullscreenControl: true,
-    zoomControl: false,
+    dragging: false, // マウスドラッグによるパン操作を不可
+    touchZoom: false, // タッチによるズーム操作を不可
+    scrollWheelZoom: false, // スクロールによるズーム操作を不可
+    doubleClickZoom: false, // ダブルクリックによるズーム操作を不可
+    boxZoom: false, // [Shift] + ドラッグによるボックスズーム操作を不可
+    tap: false, // タップによるズーム操作を不可
+    keyboard: false, // キーボードによる操作を不可
+    zoomControl: false, // ズーム コントロールの非表示
     timeDimension: true,    
     timeDimensionOptions: {
         //timeInterval: "2016-04-01/" + currentTime.toISOString(), 
