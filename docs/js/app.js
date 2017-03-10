@@ -119,7 +119,7 @@ var currentTime = new Date();
 currentTime.setUTCDate(1, 0, 0, 0, 0);
 
 var map = L.map('map', {
-    zoom: 12,
+    zoom: 13,
     fullscreenControl: true,
     dragging: false, // マウスドラッグによるパン操作を不可
     touchZoom: false, // タッチによるズーム操作を不可
